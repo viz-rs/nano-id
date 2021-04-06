@@ -2,6 +2,11 @@
 name = "nano-id"
 version = "0.0.1"
 authors = ["Fangdun Tsai <cfddream@gmail.com>"]
+description = "A tiny, secure, URL-friendly, unique string ID generator for Rust"
+documentation = "https://docs.rs/nano-id"
+repository = "https://github.com/viz-rs/nano-id"
+license = "MIT/Apache-2.0"
+readme = "README.md"
 edition = "2018"
 
 [features]
