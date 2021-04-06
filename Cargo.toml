@@ -1,0 +1,17 @@
+[package]
+name = "nano-id"
+version = "0.0.1"
+authors = ["Fangdun Tsai <cfddream@gmail.com>"]
+edition = "2018"
+
+[features]
+default = ["base64"]
+
+base64 = []
+base62 = []
+base58 = []
+
+step = []
+
+[dependencies]
+getrandom = "0.2.2"
