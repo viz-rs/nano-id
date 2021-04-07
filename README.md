@@ -24,9 +24,9 @@
 
 ## Features
 
-* **Base58**: `ModueSymbhaswnPr123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXjQW`, (Except `l0-_IO`)
-* **Base62**: `ModuleSymbhasOwnPr0123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXIjQW`, (Allow `A-Za-z0-9`)
-* **Base64**: `ModuleSymbhasOwnPr-0123456789ABCDEFGHNRVfgctiUvz_KqYTJkLxpZXIjQW`, (Allow `A-Za-z0-9_-`)
+* **Base58**: `ModueSymbhaswnPr123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXjQW`, (`123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz`)
+* **Base62**: `ModuleSymbhasOwnPr0123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXIjQW`, (`A-Za-z0-9`)
+* **Base64**: `ModuleSymbhasOwnPr-0123456789ABCDEFGHNRVfgctiUvz_KqYTJkLxpZXIjQW`, (`A-Za-z0-9_-`)
 * **Random**: data by [getrandom][]
 * **Alphabet**: custom with `gen!(uid, 64, b"_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")`
 
