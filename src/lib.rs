@@ -1,3 +1,5 @@
+//! A tiny, secure, URL-friendly, unique string ID generator
+
 #[macro_export]
 macro_rules! gen {
     ($mod:tt, $len:tt, $alphabet:tt) => {
@@ -5,44 +7,30 @@ macro_rules! gen {
             pub const ALPHABET: &'static [u8; $len] = $alphabet;
         }
 
-        #[cfg(not(feature = "step"))]
         pub fn $mod(mut size: usize) -> String {
-            let mut bytes = vec![0u8; size];
-
-            getrandom::getrandom(&mut bytes).unwrap_or_else(|err| {
-                // NB: getrandom::Error has no source; this is adequate display
-                panic!("could not retreive random bytes for uuid: {}", err)
-            });
-
-            let mask = $len - 1;
-            let mut id = String::with_capacity(size);
-
-            while size > 0 {
-                size -= 1;
-                id.push($mod::ALPHABET[bytes[size] as usize & mask].into());
-            }
-
-            id
-        }
-
-        #[cfg(feature = "step")]
-        pub fn $mod(mut size: usize) -> String {
+            #[cfg(feature = "step")]
             assert!(
                 $len <= u8::max_value() as usize,
-                "The alphabet cannot be longer than a `u8` (to comply with the `random` function)"
+                "The alphabet cannot be longer than a `u8`"
             );
 
+            #[cfg(feature = "step")]
             let mask = ($len as usize).next_power_of_two() - 1;
-            // Assert that the masking does not truncate the alphabet. (See #9)
+            #[cfg(not(feature = "step"))]
+            let mask = $len - 1;
+
+            #[cfg(feature = "step")]
             debug_assert!($len <= mask + 1);
 
+            #[cfg(feature = "step")]
             let step: usize = 8 * size / 5;
+            #[cfg(not(feature = "step"))]
+            let step = size;
+
             let mut bytes = vec![0u8; step];
 
-            getrandom::getrandom(&mut bytes).unwrap_or_else(|err| {
-                // NB: getrandom::Error has no source; this is adequate display
-                panic!("could not retreive random bytes for uuid: {}", err)
-            });
+            getrandom::getrandom(&mut bytes)
+                .unwrap_or_else(|err| panic!("could not retreive random bytes: {}", err));
 
             let mut id = String::with_capacity(size);
 
@@ -88,29 +76,35 @@ mod tests {
     #[test]
     #[cfg(feature = "base58")]
     fn generates_base58() {
-        dbg!(base58(21));
+        let id = base58(21);
+
+        assert_eq!(id.len(), 21);
     }
 
     #[test]
     #[cfg(feature = "base62")]
     fn generates_base62() {
-        dbg!(base62(21));
+        let id = base62(21);
+        assert_eq!(id.len(), 21);
     }
 
     #[test]
     #[cfg(feature = "base64")]
     fn generates_base64() {
-        dbg!(base64(21));
-    }
+        let id = base64(21);
 
-    gen!(
-        uid,
-        64,
-        b"_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    );
+        assert_eq!(id.len(), 21);
+    }
 
     #[test]
     fn generates_uid() {
-        dbg!(uid(21));
+        gen!(
+            uid,
+            64,
+            b"_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        );
+
+        let id = uid(21);
+        assert_eq!(id.len(), 21);
     }
 }
