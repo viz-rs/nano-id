@@ -24,11 +24,11 @@
 
 ## Features
 
-* Base58: `ModueSymbhaswnPr123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXjQW`
-* Base62: `ModuleSymbhasOwnPr0123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXIjQW`
-* Base64: `ModuleSymbhasOwnPr-0123456789ABCDEFGHNRVfgctiUvz_KqYTJkLxpZXIjQW`
-* Random data by [getrandom][]
-* Custom ALPHABET with `gen!(uid, 64, b"_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")`
+* **Base58**: `ModueSymbhaswnPr123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXjQW`, (Except `l0-_IO`)
+* **Base62**: `ModuleSymbhasOwnPr0123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXIjQW`, (Allow `A-Za-z0-9`)
+* **Base64**: `ModuleSymbhasOwnPr-0123456789ABCDEFGHNRVfgctiUvz_KqYTJkLxpZXIjQW`, (Allow `A-Za-z0-9_-`)
+* **Random**: data by [getrandom][]
+* **Alphabet**: custom with `gen!(uid, 64, b"_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")`
 
 ## Installation
 
