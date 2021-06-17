@@ -1,6 +1,6 @@
 [package]
 name = "nano-id"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Fangdun Tsai <cfddream@gmail.com>"]
 description = "A tiny, secure, URL-friendly, unique string ID generator for Rust"
 documentation = "https://docs.rs/nano-id"
@@ -20,4 +20,4 @@ base58 = []
 step = []
 
 [dependencies]
-getrandom = "0.2.2"
+getrandom = "0.2.3"
