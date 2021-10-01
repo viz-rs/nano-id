@@ -39,7 +39,7 @@ cargo add nano-id
 ## Usage
 
 ```rust
-nano_id::base64(21);
+nano_id::base64::<21>();
 
 // Custom ALPHABET
 nano_id::gen!(
@@ -48,7 +48,7 @@ nano_id::gen!(
     b"_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 );
 
-uid(21);
+uid::<21>();
 ```
 
 ## License
