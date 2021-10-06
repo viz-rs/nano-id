@@ -3,11 +3,13 @@
 #[macro_export]
 macro_rules! gen {
     ($mod:tt, $len:tt, $alphabet:tt) => {
+        #[doc = concat!(" Nanoid with alphabet table `", stringify!($alphabet), "`")]
         mod $mod {
             pub const MASK: usize = $len - 1;
             pub const ALPHABET: &'static [u8; $len] = $alphabet;
         }
 
+        #[doc = concat!(" Nanoid with ", stringify!($mod))]
         pub fn $mod<const N: usize>() -> String {
             let mut bytes = [0u8; N];
 
@@ -23,8 +25,6 @@ macro_rules! gen {
     };
 }
 
-// Bitcoin
-// Nanoid `A-Za-z0-9_-` - `0-I_lO` = `123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz`
 #[cfg(feature = "base58")]
 gen!(
     base58,
@@ -32,7 +32,6 @@ gen!(
     b"ModueSymbhaswnPr123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXjQW"
 );
 
-// Nanoid `A-Za-z0-9_-` - `-_` = `A-Za-z0-9`
 #[cfg(feature = "base62")]
 gen!(
     base62,
@@ -40,7 +39,6 @@ gen!(
     b"ModuleSymbhasOwnPr0123456789ABCDEFGHNRVfgctiUvzKqYTJkLxpZXIjQW"
 );
 
-// Nanoid `A-Za-z0-9_-`,
 #[cfg(feature = "base64")]
 gen!(
     base64,
