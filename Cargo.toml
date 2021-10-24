@@ -6,9 +6,9 @@ description = "A tiny, secure, URL-friendly, unique string ID generator for Rust
 documentation = "https://docs.rs/nano-id"
 keywords = ["uuid", "random", "id", "url"]
 repository = "https://github.com/viz-rs/nano-id"
-license = "MIT/Apache-2.0"
+license = "MIT OR Apache-2.0"
 readme = "README.md"
-edition = "2018"
+edition = "2021"
 
 [features]
 default = ["base64"]
