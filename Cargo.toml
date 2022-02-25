@@ -18,4 +18,4 @@ base62 = []
 base58 = []
 
 [dependencies]
-getrandom = "0.2.4"
+getrandom = "0.2.5"
