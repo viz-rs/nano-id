@@ -1,6 +1,6 @@
 [package]
 name = "nano-id"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Fangdun Tsai <cfddream@gmail.com>"]
 description = "A tiny, secure, URL-friendly, unique string ID generator for Rust"
 documentation = "https://docs.rs/nano-id"
