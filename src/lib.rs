@@ -14,7 +14,7 @@ macro_rules! gen {
             let mut bytes = [0u8; N];
 
             getrandom::getrandom(&mut bytes)
-                .unwrap_or_else(|err| panic!("could not retreive random bytes: {}", err));
+                .unwrap_or_else(|err| panic!("could not retrieve random bytes: {}", err));
 
             bytes
                 .iter_mut()
