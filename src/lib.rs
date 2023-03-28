@@ -10,6 +10,7 @@ macro_rules! gen {
         }
 
         #[doc = concat!(" Nanoid with ", stringify!($mod))]
+        #[must_use]
         pub fn $mod<const N: usize>() -> String {
             let mut bytes = [0u8; N];
 
