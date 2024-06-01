@@ -1,14 +1,14 @@
 [package]
+version = "0.3.3"
+name = "nano-id"
+edition = "2021"
 authors = ["Fangdun Tsai <cfddream@gmail.com>"]
 description = "A tiny, secure, URL-friendly, unique string ID generator for Rust"
 documentation = "https://docs.rs/nano-id"
-edition = "2021"
+repository = "https://github.com/viz-rs/nano-id"
 keywords = ["uuid", "random", "id", "url"]
 license = "MIT OR Apache-2.0"
-name = "nano-id"
 readme = "README.md"
-repository = "https://github.com/viz-rs/nano-id"
-version = "0.3.3"
 
 [features]
 wasm = ["getrandom/js"]
@@ -20,4 +20,4 @@ base62 = []
 base64 = []
 
 [dependencies]
-getrandom = "0.2.11"
+getrandom = "0.2"

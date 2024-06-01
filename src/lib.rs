@@ -14,7 +14,7 @@ macro_rules! gen {
         pub fn $mod<const N: usize>() -> String {
             let mut bytes = [0u8; N];
 
-            getrandom::getrandom(&mut bytes)
+            ::getrandom::getrandom(&mut bytes)
                 .unwrap_or_else(|err| panic!("could not retreive random bytes: {err}"));
 
             bytes
